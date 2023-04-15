@@ -2,8 +2,6 @@ package com.example.modelemvc.servlet;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpFilter;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,7 +21,7 @@ public class AuthenticationFilter extends HttpFilter {
                 // Continue la chaine des filtres/navigations
                 chain.doFilter(req, res);
             } else {
-                res.sendRedirect(req.getContextPath() + "/login");
+                res.sendRedirect(req.getContextPath() + "/");
             }
         } else {
             res.sendRedirect(req.getContextPath() + "/login");

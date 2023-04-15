@@ -22,6 +22,8 @@ public class ConnexionServlet extends HttpServlet {
 
         if (surname.equals("admin") && password.equals("admin")) {
             session.setAttribute("username", surname);
+        } else if (surname.length() > 0) {
+            session.setAttribute("username", surname);
         }
 
         response.sendRedirect("/");
