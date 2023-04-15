@@ -36,15 +36,27 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="posts">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="add-post">Add post</a>
-                    </li>
+                    <c:if test="${sessionScope.username == 'admin'}">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="add-post">Add post</a>
+                        </li>
+                    </c:if>
                 </ul>
-                <form class="d-flex mb-2 mb-md-0" role="search" action="${pageContext.request.contextPath}/" method="get" style="max-width: 600px;">
-                    <input name="pseudo" class="form-control me-2" type="search" placeholder="Pseudo" aria-label="Search">
-                    <input name="mot-de-passe" class="form-control me-2" type="search" placeholder="Mot de passe" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit" style="width: 300px">Se connecter</button>
-                </form>
+                <c:choose>
+                    <c:when test="${sessionScope.username == null}">
+                        <form class="d-flex mb-2 mb-md-0" role="search" action="${pageContext.request.contextPath}/connexion" method="post" style="max-width: 600px;">
+                            <input name="surname" class="form-control me-2" type="search" placeholder="Pseudo" aria-label="Search">
+                            <input name="password" class="form-control me-2" type="search" placeholder="Mot de passe" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit" style="width: 300px">Se connecter</button>
+                        </form>
+                    </c:when>
+                    <c:otherwise>
+                        <p class="text-white mb-2 mb-md-0 me-3">Bonjour, ${sessionScope.username} !</p>
+                        <a href="logout">
+                            <button class="btn btn-outline-success" type="submit" style="width: 150px">Se déconnecter</button>
+                        </a>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </nav>
