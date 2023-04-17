@@ -22,7 +22,7 @@
 
 <body>
 
-<header class="mb-4">
+<header class="mb-4 sticky-top">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container-fluid">
             <img src="https://img.icons8.com/plasticine/64/null/blog.png"/>
