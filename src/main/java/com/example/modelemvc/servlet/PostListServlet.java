@@ -1,6 +1,7 @@
 package com.example.modelemvc.servlet;
 
 import com.example.modelemvc.model.Post;
+import com.example.modelemvc.service.ConnectionManager;
 import com.example.modelemvc.service.PostService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

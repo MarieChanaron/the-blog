@@ -21,6 +21,13 @@ public class Post {
         this.createdAt = LocalDateTime.now();
     }
 
+    public Post(Long id, String title, String author, String content) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.content = content;
+    }
+
     public Long getId() {
         return id;
     }
