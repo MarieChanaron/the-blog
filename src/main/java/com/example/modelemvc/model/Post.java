@@ -12,13 +12,13 @@ public class Post {
     private LocalDateTime createdAt;
 
 
-    public Post(Long id, String title, String author, String content, String pictureUrl) {
+    public Post(Long id, String title, String author, String content, String pictureUrl, LocalDateTime createdAt) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.content = content;
         this.pictureUrl = pictureUrl;
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = createdAt;
     }
 
     public Post(Long id, String title, String author, String content) {

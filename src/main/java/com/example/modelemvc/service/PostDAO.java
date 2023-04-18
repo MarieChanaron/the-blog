@@ -45,7 +45,8 @@ public class PostDAO {
                 String author = results.getString(3);
                 String content = results.getString(4);
                 String pictureUrl = results.getString(5);
-                Post post = new Post(id, title, author, content, pictureUrl);
+                LocalDateTime createdAt = results.getTimestamp(6).toLocalDateTime();
+                Post post = new Post(id, title, author, content, pictureUrl, createdAt);
                 allPosts.add(post);
             }
         } catch (SQLException error) {

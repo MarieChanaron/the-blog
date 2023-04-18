@@ -2,6 +2,7 @@ package com.example.modelemvc.service;
 import com.example.modelemvc.model.Post;
 
 import java.sql.Connection;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +19,7 @@ public class PostService {
     }
 
     public Post createPost(String title, String author, String content) {
-        Post p = new Post(Long.valueOf(posts.size()), title, author, content, ("https://picsum.photos/200/300?random=" + ++PostService.idSequence));
+        Post p = new Post(Long.valueOf(posts.size()), title, author, content, ("https://picsum.photos/200/300?random=" + ++PostService.idSequence), LocalDateTime.now());
         posts.add(p);
         PostDAO postDAO = new PostDAO();
         postDAO.insertPost(p);
