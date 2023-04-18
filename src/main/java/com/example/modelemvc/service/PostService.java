@@ -9,8 +9,6 @@ import java.util.List;
 
 public class PostService {
 
-    private static long idSequence;
-
     private static List<Post> posts = new ArrayList<>(PostService.fetchAllPosts());
 
     public static List<Post> fetchAllPosts() {
@@ -19,7 +17,7 @@ public class PostService {
     }
 
     public Post createPost(String title, String author, String content) {
-        Post p = new Post(Long.valueOf(posts.size()), title, author, content, ("https://picsum.photos/200/300?random=" + ++PostService.idSequence), LocalDateTime.now());
+        Post p = new Post(Long.valueOf(posts.size()), title, author, content, ("https://picsum.photos/200/300?random=" + posts.size() + 1), LocalDateTime.now());
         posts.add(p);
         PostDAO postDAO = new PostDAO();
         postDAO.insertPost(p);
