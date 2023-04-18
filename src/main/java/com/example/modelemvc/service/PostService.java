@@ -1,24 +1,24 @@
 package com.example.modelemvc.service;
+import com.example.modelemvc.dbConnection.PostDAO;
 import com.example.modelemvc.model.Post;
 
-import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class PostService {
 
-    private static List<Post> posts = new ArrayList<>(PostService.fetchAllPosts());
+    private static int idSequence;
 
-    public static List<Post> fetchAllPosts() {
+    public List<Post> fetchAllPosts() {
         PostDAO postDAO = new PostDAO();
-        return postDAO.fetchAll();
+        List<Post> posts = postDAO.fetchAll();
+        idSequence = posts.size();
+        return posts;
     }
 
     public Post createPost(String title, String author, String content) {
-        Post p = new Post(Long.valueOf(posts.size()), title, author, content, ("https://picsum.photos/200/300?random=" + posts.size() + 1), LocalDateTime.now());
-        posts.add(p);
+        Post p = new Post(title, author, content, ("https://picsum.photos/200/300?random=" + ++idSequence), LocalDateTime.now());
         PostDAO postDAO = new PostDAO();
         postDAO.insertPost(p);
         return p;

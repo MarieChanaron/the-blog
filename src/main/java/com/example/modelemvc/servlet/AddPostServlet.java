@@ -1,13 +1,11 @@
 package com.example.modelemvc.servlet;
 
-import com.example.modelemvc.service.ConnectionManager;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import com.example.modelemvc.service.PostService;
 
 import java.io.IOException;
-import java.sql.Connection;
 
 @WebServlet(name = "AddPostServlet", value = "/add-post")
 public class AddPostServlet extends HttpServlet {

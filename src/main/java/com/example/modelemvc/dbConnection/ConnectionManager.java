@@ -1,4 +1,4 @@
-package com.example.modelemvc.service;
+package com.example.modelemvc.dbConnection;
 
 import com.mysql.cj.jdbc.Driver;
 
@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectionManager {
+public final class ConnectionManager {
 
     public static Connection INSTANCE;
 

@@ -35,8 +35,8 @@
                         <h5 class="card-title">${p.title}</h5>
                         <p class="card-text">By ${p.author}</p>
                         <p class="card-text">
-                            <fmt:parseDate value="${p.createdAt}" pattern="yyyy-MM-dd" var="postDate" type="date"/>
-                            <fmt:formatDate pattern="dd MMMM yyyy hh:mm" value="${postDate}"/>
+                            <fmt:parseDate value="${p.createdAt}" pattern="yyyy-MM-dd'T'HH:mm" var="postDate" type="date"/>
+                            <fmt:formatDate pattern="dd MMMM yyyy HH:mm" value="${postDate}"/>
                         </p>
                     </div>
                 </div>

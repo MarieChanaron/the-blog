@@ -1,4 +1,4 @@
-package com.example.modelemvc.service;
+package com.example.modelemvc.dbConnection;
 
 import com.example.modelemvc.model.Post;
 

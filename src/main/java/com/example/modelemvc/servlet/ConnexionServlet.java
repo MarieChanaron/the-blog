@@ -1,5 +1,6 @@
 package com.example.modelemvc.servlet;
 
+import com.example.modelemvc.service.AdminService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -20,7 +21,7 @@ public class ConnexionServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        if (surname.equals("admin") && password.equals("admin")) {
+        if (AdminService.checkAdminCredentials(surname, password)) {
             session.setAttribute("username", surname);
         } else if (surname.length() > 0) {
             session.setAttribute("username", surname);
